@@ -1,0 +1,72 @@
+﻿<Window x:Class="Clinica_Dental.MainWindow"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Clinica_Dental"
+        mc:Ignorable="d"
+        Title="InicioSesión" Height="400" Width="425" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0" Background="Pink" MouseLeftButtonDown="Border_MouseLeftButtonDown">
+            <Grid>
+                <materialDesign:ColorZone Mode="PrimaryDark" Background="#FF6AB3F1">
+                    <StackPanel HorizontalAlignment="Right">
+                        <Button Width="30" Height="30" materialDesign:ShadowAssist.ShadowDepth="Depth3" Padding="0" Click="Button_Click" BorderBrush="#FF6AB3F1" Background="#FF6AB3F1">
+                            <materialDesign:PackIcon Kind="WindowClose" Background="#FF6AB3F1"/>
+                        </Button>
+                    </StackPanel>
+                </materialDesign:ColorZone>
+            </Grid>
+        </Border>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="337*"/>
+                <ColumnDefinition Width="88*"/>
+            </Grid.ColumnDefinitions>
+            <materialDesign:ColorZone Mode="PrimaryMid" Grid.ColumnSpan="2" Background="#FFBDE0FE">
+                <TextBlock FontSize="35" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="30 30" Foreground="#FFFF70A4" FontFamily="Segoe UI" FontWeight="Bold" RenderTransformOrigin="0.713,0.383"><Run Text="¡"/><Run Text="Bienvenidos"/><Run Text="!"/></TextBlock>
+            </materialDesign:ColorZone>
+        </Grid>
+
+        <Grid Grid.Row="2" Background="#FFF1E8F6">
+            <StackPanel Orientation="Vertical" Margin="40 20">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Account" Foreground="{Binding ElementName=txtUsuario, Path=BorderBrush}" VerticalAlignment="Bottom" Margin="0 4" RenderTransformOrigin="0.5,0.5" Height="4" Width="2">
+                        <materialDesign:PackIcon.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="-1" ScaleX="-1"/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-0.138"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </materialDesign:PackIcon.RenderTransform>
+                    </materialDesign:PackIcon>
+                    <Image Source="perfil-del-usuario.png" Stretch="Fill" RenderTransformOrigin="0.932,0.545" Height="34" Width="34"/>
+                    <TextBox x:Name="txtUsuario" Width="276" materialDesign:HintAssist.Hint="Usuario" materialDesign:HintAssist.IsFloating="True" Background="{x:Null}" RenderTransformOrigin="0.5,1" FontFamily="Segoe UI"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" Margin="0 40">
+                    <Image Source="contraseña.png" Stretch="Fill" Height="35" Width="34"/>
+                    <PasswordBox x:Name="pwbContraseña" Width="282" materialDesign:HintAssist.Hint="Contraseña" materialDesign:HintAssist.IsFloating="True" FontFamily="Segoe UI"/>
+                </StackPanel>
+
+                <Button Content="Iniciar" Width="100" HorizontalAlignment="Center" Margin="0 20" Click="ButtonIniciar_Click" Background="#FFBDE0FE" FontWeight="Bold" RenderTransformOrigin="0.5,0.5" Foreground="#FFFF70A4" FontSize="16" FontFamily="Segoe UI" Height="29"/>
+            </StackPanel>
+        </Grid>
+        <Image Margin="0,21,311,261" Source="logohappydental.png" Stretch="Fill" Grid.RowSpan="3"/>
+    </Grid>
+</Window>
